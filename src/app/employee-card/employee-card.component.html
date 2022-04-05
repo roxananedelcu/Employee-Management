@@ -1,0 +1,20 @@
+<div class="cards-wrapper">
+    <div class="cards" *ngFor="let employees of employees"> 
+        <mat-card class="matrial-card">
+            <mat-card-title> {{employees.firstName}} {{employees.lastName}} </mat-card-title>
+            <mat-card-subtitle>
+                <p *ngIf="employees.isDirector">(director)</p>
+                <br *ngIf="!employees.isDirector">
+            </mat-card-subtitle> 
+            <mat-card-content>
+                <p>Age: {{employees.age}} </p>
+                <p>Date of Birth: {{employees.dateOfBirth | date: 'mediumDate'}} </p>
+                <p>Company: {{employees.company}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>EDIT</button>
+                <button mat-raised-button color="warn">DELETE</button>
+              </mat-card-actions>
+        </mat-card>
+    </div>    
+</div>

@@ -39,9 +39,18 @@ export class AppComponent implements OnInit {
     employee3.company = "Google";
     employee3.isDirector = false;
 
+    let employee4 = new Employee();
+    employee4.age = 23;
+    employee4.firstName = "Giulia";
+    employee4.lastName = "Popescu";
+    employee4.dateOfBirth = new Date(1998, 5, 5)
+    employee4.company = "Nokia";
+    employee4.isDirector = false;
+
     this.employees.push(employee);
     this.employees.push(employee2);
     this.employees.push(employee3);
+    this.employees.push(employee4);
   }
 }
 

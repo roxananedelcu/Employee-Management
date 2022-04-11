@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeCardComponent
+    EmployeeCardComponent,
+    DeleteEmployeeComponent
   ],
   imports: [
     BrowserModule,

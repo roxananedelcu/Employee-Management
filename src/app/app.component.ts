@@ -1,3 +1,5 @@
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './models/employee.model';
 
@@ -10,11 +12,28 @@ export class AppComponent implements OnInit {
   
   public employees: Employee[] = []; 
 
-  constructor()
+  constructor(
+    public dialog: MatDialog
+  )
   {
   }
   
   ngOnInit(){
+    this.initEmployeeList();
+  }
+
+  public deleteEmployee(employeeId:number) : void {
+    const dialogRef = this.dialog.open(DeleteEmployeeComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      debugger;
+      if(result){
+        this.employees = this.employees.filter(e => e.id != employeeId);
+      }
+    })
+  }
+
+  private initEmployeeList(){
     let employee = new Employee();
     employee.id = 1;
     employee.age = 24;
@@ -55,10 +74,6 @@ export class AppComponent implements OnInit {
     this.employees.push(employee2);
     this.employees.push(employee3);
     this.employees.push(employee4);
-  }
-
-  public deleteEmployee(employeeId:number) : void {
-    this.employees = this.employees.filter(e => e.id != employeeId);
   }
 }
 

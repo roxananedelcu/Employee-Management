@@ -2,4 +2,6 @@
     flex-direction: row-reverse">
     <button mat-raised-button color="primary">ADD</button>
 </mat-card>
-<app-employee-card [employees]="employees"></app-employee-card>
+<app-employee-card [employees]="employees" 
+                   (onDeleteEvent)="deleteEmployee($event)">
+</app-employee-card>

@@ -1,19 +1,19 @@
 <div class="cards-wrapper">
-    <div class="cards" *ngFor="let employees of employees"> 
+    <div class="cards" *ngFor="let employee of employees"> 
         <mat-card class="matrial-card">
-            <mat-card-title> {{employees.firstName}} {{employees.lastName}} </mat-card-title>
+            <mat-card-title> {{employee.firstName}} {{employee.lastName}} </mat-card-title>
             <mat-card-subtitle>
-                <p *ngIf="employees.isDirector">(director)</p>
-                <br *ngIf="!employees.isDirector">
+                <p *ngIf="employee.isDirector">(director)</p>
+                <br *ngIf="!employee.isDirector">
             </mat-card-subtitle> 
             <mat-card-content>
-                <p>Age: {{employees.age}} </p>
-                <p>Date of Birth: {{employees.dateOfBirth | date: 'mediumDate'}} </p>
-                <p>Company: {{employees.company}}</p>
+                <p>Age: {{employee.age}} </p>
+                <p>Date of Birth: {{employee.dateOfBirth | date: 'mediumDate'}} </p>
+                <p>Company: {{employee.company}}</p>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-button>EDIT</button>
-                <button mat-raised-button color="warn">DELETE</button>
+                <button mat-raised-button color="warn" (click)="onDelete(employee.id)">DELETE</button>
               </mat-card-actions>
         </mat-card>
     </div>    

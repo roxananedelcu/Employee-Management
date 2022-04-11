@@ -6,7 +6,7 @@ import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule, 
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
 
   providers: [],

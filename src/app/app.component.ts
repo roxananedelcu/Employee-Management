@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   
   ngOnInit(){
     let employee = new Employee();
+    employee.id = 1;
     employee.age = 24;
     employee.firstName = "Roxana";
     employee.lastName = "Nedelcu";
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     employee.isDirector = true;
 
     let employee2 = new Employee();
+    employee2.id = 2;
     employee2.age = 25;
     employee2.firstName = "Alexandru";
     employee2.lastName = "Biris";
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit {
     employee2.isDirector = false;
 
     let employee3 = new Employee();
+    employee3.id = 3;
     employee3.age = 23;
     employee3.firstName = "Fabian";
     employee3.lastName = "Ardeiu";
@@ -40,6 +43,7 @@ export class AppComponent implements OnInit {
     employee3.isDirector = false;
 
     let employee4 = new Employee();
+    employee4.id = 4;
     employee4.age = 23;
     employee4.firstName = "Giulia";
     employee4.lastName = "Popescu";
@@ -51,6 +55,10 @@ export class AppComponent implements OnInit {
     this.employees.push(employee2);
     this.employees.push(employee3);
     this.employees.push(employee4);
+  }
+
+  public deleteEmployee(employeeId:number) : void {
+    this.employees = this.employees.filter(e => e.id != employeeId);
   }
 }
 

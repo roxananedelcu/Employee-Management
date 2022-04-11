@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Employee } from '../models/employee.model';
-import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-employee-card',
@@ -9,11 +8,16 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class EmployeeCardComponent implements OnInit{
 @Input() employees : Employee[] = [];
+@Output() onDeleteEvent = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
     
+  }
+
+  public onDelete(employeeId: number) : void {
+    this.onDeleteEvent.emit(employeeId);
   }
 }
 

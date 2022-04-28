@@ -1,7 +1,7 @@
-<mat-card style="display: flex;
-    flex-direction: row-reverse">
-    <button mat-raised-button color="primary">ADD</button>
+<mat-card style="display: flex; flex-direction: row-reverse">
+    <button mat-raised-button onclick="addEmployee($event)" color="primary" >ADD</button>
 </mat-card>
 <app-employee-card [employees]="employees" 
-                   (onDeleteEvent)="deleteEmployee($event)">
-</app-employee-card>
+                   (onDeleteEvent)="deleteEmployee($event)"
+                   (onEditEvent)="editEmployee($event)">
+</app-employee-card>>

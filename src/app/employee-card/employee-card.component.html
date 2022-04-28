@@ -6,15 +6,18 @@
                 <p *ngIf="employee.isDirector">(director)</p>
                 <br *ngIf="!employee.isDirector">
             </mat-card-subtitle> 
+
             <mat-card-content>
                 <p>Age: {{employee.age}} </p>
                 <p>Date of Birth: {{employee.dateOfBirth | date: 'mediumDate'}} </p>
                 <p>Company: {{employee.company}}</p>
             </mat-card-content>
+
             <mat-card-actions>
-                <button mat-button>EDIT</button>
+                <button mat-raised-button (click)="onEdit(employee.age)">EDIT</button>
                 <button mat-raised-button color="warn" (click)="onDelete(employee.id)">DELETE</button>
               </mat-card-actions>
         </mat-card>
+
     </div>    
 </div>

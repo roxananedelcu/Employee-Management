@@ -2,6 +2,7 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './models/employee.model';
+import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   constructor(
     public dialog: MatDialog
   )
+  
   {
   }
   
@@ -24,18 +26,28 @@ export class AppComponent implements OnInit {
 
   public deleteEmployee(employeeId:number) : void {
     const dialogRef = this.dialog.open(DeleteEmployeeComponent);
-
     dialogRef.afterClosed().subscribe(result => {
-      debugger;
       if(result){
         this.employees = this.employees.filter(e => e.id != employeeId);
       }
-    })
-  }
+    }) 
+  } 
 
-  private initEmployeeList(){
+  public editEmployee(employeeId:number): void{
+    const dialogRef = this.dialog.open(EditEmployeeDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+      this.employees.find(e => e.id != e.age++) 
+    }})
+  } 
+
+  public addEmployee(): void{
+   }
+
+
+  private initEmployeeList(): void{
     let employee = new Employee();
-    employee.id = 1;
+    employee.id = 1; 
     employee.age = 24;
     employee.firstName = "Roxana";
     employee.lastName = "Nedelcu";
@@ -69,6 +81,15 @@ export class AppComponent implements OnInit {
     employee4.dateOfBirth = new Date(1998, 5, 5)
     employee4.company = "Nokia";
     employee4.isDirector = false;
+
+    // let employee5 = new Employee();
+    // employee5.id = 3;
+    // employee5.age = 23;
+    // employee5.firstName = "Adrian";
+    // employee5.lastName = "Birce";
+    // employee5.dateOfBirth = new Date(1996, 6, 17)
+    // employee5.company = "Google";
+    // employee5.isDirector = false;
 
     this.employees.push(employee);
     this.employees.push(employee2);

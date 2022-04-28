@@ -8,11 +8,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
+import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeCardComponent,
-    DeleteEmployeeComponent
+    DeleteEmployeeComponent,
+    EditEmployeeDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +24,13 @@ import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employe
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule, 
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
 
   providers: [],

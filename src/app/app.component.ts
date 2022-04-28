@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './models/employee.model';
 import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,9 +14,9 @@ export class AppComponent implements OnInit {
   public employees: Employee[] = []; 
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
   )
-  
   {
   }
   
@@ -33,16 +33,20 @@ export class AppComponent implements OnInit {
     }) 
   } 
 
-  public editEmployee(employeeId:number): void{
-    const dialogRef = this.dialog.open(EditEmployeeDialogComponent);
+  public editEmployee(employeeId:number): void {
+    const dialogRef = this.dialog.open(EditEmployeeDialogComponent, {
+      data: this.employees.find(e => e.id == employeeId)
+    });
+    
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
-      this.employees.find(e => e.id != e.age++) 
+      if(result) {
+        this.snackBar.open('Employee updated', 'Close' );
     }})
   } 
 
   public addEmployee(): void{
-   }
+    this.employees.push(new Employee());
+  }
 
 
   private initEmployeeList(): void{

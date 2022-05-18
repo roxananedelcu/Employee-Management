@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './models/employee.model';
 import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
+import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-root',
@@ -45,7 +46,12 @@ export class AppComponent implements OnInit {
   } 
 
   public addEmployee(): void{
-    this.employees.push(new Employee());
+    const dialogRef = this.dialog.open(AddEmployeeDialogComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.snackBar.open('Employee added', 'Close' );
+    }})
   }
 
 

@@ -1,0 +1,57 @@
+<h2>Edit employee</h2>
+<form [formGroup]="addEmployeeForm">
+
+    <mat-dialog-content>
+        <mat-form-field class="form-field">
+            <mat-label>First name</mat-label>
+            <input matInput [ngModel]="employee.firstName" formControlName="firstName" type="text" class="form-control">
+            <mat-error *ngIf="addEmployeeForm.get('firstName')?.hasError('required')">
+                First name is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Last name</mat-label>
+            <input matInput [ngModel]="employee.lastName" formControlName="lastName" type="text" class="form-control">
+            <mat-error *ngIf="addEmployeeForm.get('lastName')?.hasError('required')">
+                Last name is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Age</mat-label>
+            <input matInput [ngModel]="employee.age" formControlName="age" type="number" class="form-control">
+            <mat-error *ngIf="addEmployeeForm.get('age')?.hasError('required')">
+                Age is required!
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="form-field">
+            <mat-label>Company</mat-label>
+            <input matInput [ngModel]="employee.company" formControlName="company" type="text" class="form-control">
+            <mat-error *ngIf="addEmployeeForm.get('company')?.hasError('required')">
+                Company is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="datepicker" [ngModel]="employee.dateOfBirth" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+        </mat-form-field>
+
+        <mat-checkbox [ngModel]="employee.isDirector" formControlName="isDirector" class="form-control">Is director</mat-checkbox>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-button class="dialog-buttons" mat-raised-button (click)="onDecline()">Cancel</button>
+        <button mat-button  class="dialog-buttons" mat-raised-button color="primary" (click)="onConfirm()">Add</button>
+    </mat-dialog-actions>
+</form>

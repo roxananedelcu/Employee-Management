@@ -17,6 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     EmployeeCardComponent,
     DeleteEmployeeComponent,
     EditEmployeeDialogComponent,
+    AddEmployeeDialogComponent,
   ],
   imports: [
     BrowserModule,

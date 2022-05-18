@@ -36,27 +36,22 @@
         </mat-form-field>
 
         <mat-form-field class="form-field">
-            <mat-label>Date of Birth</mat-label>
-            <input matInput [ngModel]="employee.dateOfBirth" formControlName="dateOfBirth" type="date" class="form-control">
-            <mat-error *ngIf="editEmployeeForm.get('dateOfBirth')?.hasError('required')">
-                Date of birth is required!
-            </mat-error>
-        </mat-form-field>
-        
-        <mat-form-field class="form-field">
-            <mat-label>Is this employee a director?</mat-label>
-            <input matInput [ngModel]="employee.isDirector" class="form-control">
-            <mat-radio-group>
-                <mat-radio-button value="true">Yes</mat-radio-button>
-                <mat-radio-button value="false">No</mat-radio-button>
-            </mat-radio-group>
-            <mat-error *ngIf="editEmployeeForm.get('isDirector')?.hasError('required')">
-                Please select an option!
-            </mat-error>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="datepicker" [ngModel]="employee.dateOfBirth" formControlName="dateOfBirth">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
         </mat-form-field>
 
-<mat-dialog-actions>
-    <button mat-button class="dialog-buttons" mat-raised-button (click)="onDecline()">Cancel</button>
-    <button mat-button  class="dialog-buttons" mat-raised-button color="primary" (click)="onConfirm()">Edit</button>
-</mat-dialog-actions>
+        <mat-checkbox [ngModel]="employee.isDirector" formControlName="isDirector" class="form-control">Is director</mat-checkbox>
+    </mat-dialog-content>
 
+    <mat-dialog-actions>
+        <button mat-button class="dialog-buttons" mat-raised-button (click)="onDecline()">Cancel</button>
+        <button mat-button  class="dialog-buttons" mat-raised-button color="primary" (click)="onConfirm()">Edit</button>
+    </mat-dialog-actions>
+</form>

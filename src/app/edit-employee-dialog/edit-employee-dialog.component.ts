@@ -25,7 +25,7 @@ export class EditEmployeeDialogComponent implements OnInit {
       age: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       company: ['', Validators.required],
-      isDirector: ['', Validators.required]
+      isDirector: ['']
     })
   }
 
@@ -38,7 +38,7 @@ export class EditEmployeeDialogComponent implements OnInit {
       this.employee.firstName = this.editEmployeeForm.get('firstName')?.value;
       this.employee.lastName = this.editEmployeeForm.get('lastName')?.value;
       this.employee.age = this.editEmployeeForm.get('age')?.value;
-      this.employee.dateOfBirth = this.editEmployeeForm.get ('dateOfBirth')?.value;
+      this.employee.dateOfBirth = this.editEmployeeForm.get('dateOfBirth')?.value;
       this.employee.company = this.editEmployeeForm.get('company')?.value;
       this.employee.isDirector = this.editEmployeeForm.get('isDirector')?.value;
       this.thisDialogRef.close(true);

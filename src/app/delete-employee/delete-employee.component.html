@@ -6,3 +6,12 @@
     <button mat-button mat-raised-button (click)="onDecline()">No</button>
     <button mat-button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
 </mat-dialog-actions>
+
+<mat-form-field class="form-field">
+    <mat-label>Is this employee a director?</mat-label>
+    <input type="radio" class="form-control">
+    <mat-radio-group>
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+</mat-form-field>

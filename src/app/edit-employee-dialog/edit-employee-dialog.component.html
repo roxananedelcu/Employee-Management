@@ -1,8 +1,8 @@
 <h2>Edit employee</h2>
 <form [formGroup]="editEmployeeForm">
-    <mat-dialog-content>
 
-        <mat-form-field>
+    <mat-dialog-content>
+        <mat-form-field class="form-field">
             <mat-label>First name</mat-label>
             <input matInput [ngModel]="employee.firstName" formControlName="firstName" type="text" class="form-control">
             <mat-error *ngIf="editEmployeeForm.get('firstName')?.hasError('required')">
@@ -10,7 +10,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Last name</mat-label>
             <input matInput [ngModel]="employee.lastName" formControlName="lastName" type="text" class="form-control">
             <mat-error *ngIf="editEmployeeForm.get('lastName')?.hasError('required')">
@@ -18,19 +18,45 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Age</mat-label>
             <input matInput [ngModel]="employee.age" formControlName="age" type="number" class="form-control">
             <mat-error *ngIf="editEmployeeForm.get('age')?.hasError('required')">
                 Age is required!
             </mat-error>
         </mat-form-field>
+        <br>
 
-    </mat-dialog-content>
+        <mat-form-field class="form-field">
+            <mat-label>Company</mat-label>
+            <input matInput [ngModel]="employee.company" formControlName="company" type="text" class="form-control">
+            <mat-error *ngIf="editEmployeeForm.get('company')?.hasError('required')">
+                Company is required!
+            </mat-error>
+        </mat-form-field>
 
-</form>
+        <mat-form-field class="form-field">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [ngModel]="employee.dateOfBirth" formControlName="dateOfBirth" type="date" class="form-control">
+            <mat-error *ngIf="editEmployeeForm.get('dateOfBirth')?.hasError('required')">
+                Date of birth is required!
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field">
+            <mat-label>Is this employee a director?</mat-label>
+            <input matInput [ngModel]="employee.isDirector" class="form-control">
+            <mat-radio-group>
+                <mat-radio-button value="true">Yes</mat-radio-button>
+                <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="editEmployeeForm.get('isDirector')?.hasError('required')">
+                Please select an option!
+            </mat-error>
+        </mat-form-field>
 
 <mat-dialog-actions>
-    <button mat-button mat-raised-button (click)="onDecline()">Cancel</button>
-    <button mat-button mat-raised-button color="primary" (click)="onConfirm()">Edit</button>
+    <button mat-button class="dialog-buttons" mat-raised-button (click)="onDecline()">Cancel</button>
+    <button mat-button  class="dialog-buttons" mat-raised-button color="primary" (click)="onConfirm()">Edit</button>
 </mat-dialog-actions>
+

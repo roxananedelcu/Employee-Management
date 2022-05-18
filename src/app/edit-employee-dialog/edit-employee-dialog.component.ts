@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Employee } from '../models/employee.model';
+
 @Component({
   selector: 'app-edit-employee-dialog',
   templateUrl: './edit-employee-dialog.component.html',
@@ -21,7 +22,10 @@ export class EditEmployeeDialogComponent implements OnInit {
     this.editEmployeeForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      age: ['', Validators.required]
+      age: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      company: ['', Validators.required],
+      isDirector: ['', Validators.required]
     })
   }
 
@@ -34,7 +38,9 @@ export class EditEmployeeDialogComponent implements OnInit {
       this.employee.firstName = this.editEmployeeForm.get('firstName')?.value;
       this.employee.lastName = this.editEmployeeForm.get('lastName')?.value;
       this.employee.age = this.editEmployeeForm.get('age')?.value;
-      
+      this.employee.dateOfBirth = this.editEmployeeForm.get ('dateOfBirth')?.value;
+      this.employee.company = this.editEmployeeForm.get('company')?.value;
+      this.employee.isDirector = this.editEmployeeForm.get('isDirector')?.value;
       this.thisDialogRef.close(true);
     } else {
       this.editEmployeeForm.markAllAsTouched();

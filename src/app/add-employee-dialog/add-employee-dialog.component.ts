@@ -10,8 +10,6 @@ import { Employee } from '../models/employee.model';
   styleUrls: ['./add-employee-dialog.component.scss']
 })
 export class AddEmployeeDialogComponent implements OnInit {
-
-  employee: Employee;
   addEmployeeForm: FormGroup;
 
   constructor(
@@ -20,8 +18,6 @@ export class AddEmployeeDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.employee = new Employee();
-
     this.addEmployeeForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -33,8 +29,22 @@ export class AddEmployeeDialogComponent implements OnInit {
   }
 
   onDecline() {
+    this.thisDialogRef.close(false);
   }
 
   onConfirm() {
+    let employee = new Employee();
+    
+    if(this.addEmployeeForm.valid){
+      employee.firstName = this.addEmployeeForm.get('firstName')?.value;
+      employee.lastName = this.addEmployeeForm.get('lastName')?.value;
+      employee.age = this.addEmployeeForm.get('age')?.value;
+      employee.dateOfBirth = this.addEmployeeForm.get('dateOfBirth')?.value;
+      employee.company = this.addEmployeeForm.get('company')?.value;
+      employee.isDirector = this.addEmployeeForm.get('isDirector')?.value;
+      this.thisDialogRef.close(employee);
+    } else {
+      this.addEmployeeForm.markAllAsTouched();
+    }
   }
 }

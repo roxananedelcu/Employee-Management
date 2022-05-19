@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
     
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
+        this.employees.push(result);
         this.snackBar.open('Employee added', 'Close' );
     }})
   }

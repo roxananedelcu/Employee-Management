@@ -4,7 +4,7 @@
     <mat-dialog-content>
         <mat-form-field class="form-field">
             <mat-label>First name</mat-label>
-            <input matInput [ngModel]="employee.firstName" formControlName="firstName" type="text" class="form-control">
+            <input matInput formControlName="firstName" type="text" class="form-control">
             <mat-error *ngIf="addEmployeeForm.get('firstName')?.hasError('required')">
                 First name is required!
             </mat-error>
@@ -12,7 +12,7 @@
 
         <mat-form-field class="form-field">
             <mat-label>Last name</mat-label>
-            <input matInput [ngModel]="employee.lastName" formControlName="lastName" type="text" class="form-control">
+            <input matInput formControlName="lastName" type="text" class="form-control">
             <mat-error *ngIf="addEmployeeForm.get('lastName')?.hasError('required')">
                 Last name is required!
             </mat-error>
@@ -20,7 +20,7 @@
 
         <mat-form-field class="form-field">
             <mat-label>Age</mat-label>
-            <input matInput [ngModel]="employee.age" formControlName="age" type="number" class="form-control">
+            <input matInput formControlName="age" type="number" class="form-control">
             <mat-error *ngIf="addEmployeeForm.get('age')?.hasError('required')">
                 Age is required!
             </mat-error>
@@ -29,7 +29,7 @@
 
         <mat-form-field class="form-field">
             <mat-label>Company</mat-label>
-            <input matInput [ngModel]="employee.company" formControlName="company" type="text" class="form-control">
+            <input matInput formControlName="company" type="text" class="form-control">
             <mat-error *ngIf="addEmployeeForm.get('company')?.hasError('required')">
                 Company is required!
             </mat-error>
@@ -37,7 +37,7 @@
 
         <mat-form-field class="form-field">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="datepicker" [ngModel]="employee.dateOfBirth" formControlName="dateOfBirth">
+            <input matInput [matDatepicker]="datepicker" formControlName="dateOfBirth">
             <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
             <mat-datepicker #datepicker>
                 <mat-datepicker-actions>
@@ -47,7 +47,7 @@
               </mat-datepicker>
         </mat-form-field>
 
-        <mat-checkbox [ngModel]="employee.isDirector" formControlName="isDirector" class="form-control">Is director</mat-checkbox>
+        <mat-checkbox formControlName="isDirector" class="form-control">Is director</mat-checkbox>
     </mat-dialog-content>
 
     <mat-dialog-actions>

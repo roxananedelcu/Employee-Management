@@ -43,7 +43,6 @@ import { AddEmployeeDialogComponent } from './add-employee-dialog/add-employee-d
     MatSelectModule,
     MatCheckboxModule,
   ],
-
   providers: [],
   bootstrap: [AppComponent],
 })
